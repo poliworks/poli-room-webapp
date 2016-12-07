@@ -3,6 +3,9 @@ app/**/*.map
 node_modules
 jspm_packages
 bower_components
+.idea/
+npm-debug.log
+*.iml
 aot/*
 dist/*
 yarn.lock
