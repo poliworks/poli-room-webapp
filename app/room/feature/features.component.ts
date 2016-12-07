@@ -20,6 +20,7 @@ import {Response} from "@angular/http";
 export class FeaturesComponent implements OnChanges {
 
     @Input() roomId: number;
+    @Input() featureChanges: number;
 
     features : Object[] = [];
 

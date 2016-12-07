@@ -4,6 +4,8 @@ import {HttpService} from "../shared/http.service";
 import {Response} from "@angular/http";
 import 'rxjs/add/operator/switchMap';
 
+declare var jQuery: any;
+
 @Component({
     selector: `room-content`,
     template: `
@@ -16,20 +18,19 @@ import 'rxjs/add/operator/switchMap';
             <br/>
 
             <div class="row">
-              <room-events [roomId]="roomId" [changes]="eventChanges"></room-events>
-              <room-problems [roomId]="roomId" [changes]="problemChanges"></room-problems>
+              <room-events [roomId]="roomId" [eventChanges]="eventChanges"></room-events>
+              <room-problems [roomId]="roomId" [problemChanges]="problemChanges"></room-problems>
             </div> <!-- end row of MANUTENÇÃO and PROXIMAS ATIVIDADES -->
             <div class="row">
-              <room-features [roomId]="roomId" [changes]="featureChanges"></room-features>
-              <button class="btn btn-default">Novo Recurso</button>
+              <room-features [roomId]="roomId" [featureChanges]="featureChanges"></room-features>
+              <a class="modal-trigger waves-effect waves-light btn right" href="#new-feature-modal">Nova Feature</a>
             </div> <!-- FEATURES ROW -->
           </div> <!-- end main row -->
-
         </div>
     </div>
-    <new-event-modal [roomId]="roomId" (onNewActivityCreation)="onNewActivityCreation()"></new-event-modal>
     <new-problem-modal [roomId]="roomId" (onNewProblemCreation)="onNewProblemCreation()"></new-problem-modal>
     <new-feature-modal [roomId]="roomId" (onNewFeatureCreation)="onNewFeatureCreation()"></new-feature-modal>
+    <new-event-modal [roomId]="roomId" (onNewActivityCreation)="onNewActivityCreation()"></new-event-modal>
     `
 })
 export class RoomContentComponent implements OnInit {

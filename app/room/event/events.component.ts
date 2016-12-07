@@ -12,7 +12,7 @@ declare var jQuery: any;
         <div class="card">
           <div class="card-content">
             <span class="card-title">Próximas Atitivades</span>
-            <a (click)="openNewActivityModal()" class="modal-trigger waves-effect waves-light btn right" href="#new-activity-modal">+</a>
+            <a (click)="openNewActivityModal()" class="modal-trigger waves-effect waves-light btn right" href="#new-event-modal">+</a>
             <ul class="collection">
               <li *ngFor="let event of this.events;" class="collection-item">
                 <button (click)="deleteEvent(event)" aria-label="Close Account Info Modal Box" class="right btn btn-floating red">&times;</button>
@@ -32,7 +32,7 @@ declare var jQuery: any;
 export class EventsComponent implements OnInit, OnChanges {
 
     @Input() roomId: number;
-    @Input() changes: number;
+    @Input() eventChanges: number;
     recurrenceMap = {single: "Unica", weekly: "Semanal", monthly: "Mensal", yearly: "Anual", daily: "Diaria"}
     events: Object[] = [];
 

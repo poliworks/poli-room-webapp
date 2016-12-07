@@ -17,6 +17,7 @@ import {SelectFeatureComponent} from "./room/feature/select-feature.component";
 import {RegisterFormComponent} from "./login/register-form.component";
 import {EventsComponent} from "./room/event/events.component";
 import {NewEventComponent} from "./room/event/new-event.component";
+import {NewFeatureComponent} from "./room/feature/new-feature.component";
 
 const appRoutes: Routes = [
     {path: "", component: LoginFormComponent, pathMatch: "full"},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
         NewEventComponent,
         NewProblemComponent,
         SelectFeatureComponent,
-        RegisterFormComponent
+        RegisterFormComponent,
+        NewFeatureComponent
     ],
     bootstrap: [AppComponent]
 })

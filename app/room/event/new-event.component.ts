@@ -107,6 +107,7 @@ export class NewEventComponent implements OnInit {
         return Object.keys(this.recurrenceTypesMap);
     }
 }
+
 export class RoomEvent {
     name: string;
     description: string;
