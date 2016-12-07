@@ -1,5 +1,4 @@
 import {Component, Input, SimpleChanges, OnChanges} from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
 import {HttpService} from "../../shared/http.service";
 import {Response} from "@angular/http";
 

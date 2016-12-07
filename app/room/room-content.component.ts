@@ -1,5 +1,5 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {Router, Params, NavigationExtras, ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Params, ActivatedRoute} from '@angular/router';
 import {HttpService} from "../shared/http.service";
 import {Response} from "@angular/http";
 import 'rxjs/add/operator/switchMap';
@@ -20,7 +20,8 @@ import 'rxjs/add/operator/switchMap';
               <room-problems [roomId]="roomId" [changes]="problemChanges"></room-problems>
             </div> <!-- end row of MANUTENÇÃO and PROXIMAS ATIVIDADES -->
             <div class="row">
-              <room-features [roomId]="roomId"></room-features>
+              <room-features [roomId]="roomId" [changes]="featureChanges"></room-features>
+              <button class="btn btn-default">Novo Recurso</button>
             </div> <!-- FEATURES ROW -->
           </div> <!-- end main row -->
 
@@ -28,12 +29,14 @@ import 'rxjs/add/operator/switchMap';
     </div>
     <new-event-modal [roomId]="roomId" (onNewActivityCreation)="onNewActivityCreation()"></new-event-modal>
     <new-problem-modal [roomId]="roomId" (onNewProblemCreation)="onNewProblemCreation()"></new-problem-modal>
+    <new-feature-modal [roomId]="roomId" (onNewFeatureCreation)="onNewFeatureCreation()"></new-feature-modal>
     `
 })
 export class RoomContentComponent implements OnInit {
 
     eventChanges: number = 0;
     problemChanges: number = 0;
+    featureChanges: number = 0;
     room: Room = {id: 0, name: "", building: "", department: ""};
     roomId: number;
 
@@ -45,6 +48,10 @@ export class RoomContentComponent implements OnInit {
 
     onNewProblemCreation() {
         this.problemChanges++;
+    }
+
+    onNewFeatureCreation() {
+        this.featureChanges++;
     }
 
     ngOnInit() {
