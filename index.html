@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="assets/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="node_modules/flatpickr/dist/flatpickr.min.css">
-
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
 
@@ -24,6 +23,14 @@
     <script src="systemjs.config.js"></script>
     <script>
         System.import('app').catch(function(err){ console.error(err); });
+
+        (function () {
+            var link = document.createElement('link');
+            link.Type = 'image/x-icon';
+            link.rel = 'icon';
+            link.href = "favicon.ico";
+            document.getElementsByTagName ('head')[0].appendChild(link);
+        }());
     </script>
 </head>
 

@@ -48,7 +48,7 @@ declare var jQuery: any;
 
 export class NewFeatureComponent implements OnInit {
 
-    @Output() onNewFeatureCreation = new EventEmitter<Event>();
+    @Output() onNewFeatureCreation = new EventEmitter<Feature>();
     @Input() roomId: number;
 
     feature: Feature = new Feature();
@@ -60,14 +60,14 @@ export class NewFeatureComponent implements OnInit {
     }
 
     createFeature() {
-        this.registerFeature(this.event);
+        this.registerFeature(this.feature);
     }
 
     emitNewFeatureCreation(activity: any) {
-        this.onNewFeatureCreation.emit(this.event);
+        this.onNewFeatureCreation.emit(this.feature);
     }
 
-    registerFeature(activity: Event) {
+    registerFeature(feature: Feature) {
         let r = {
             "name": feature.name,
             "description": feature.description,

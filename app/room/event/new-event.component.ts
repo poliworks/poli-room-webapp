@@ -89,7 +89,7 @@ export class NewEventComponent implements OnInit {
         this.onNewEventCreation.emit(this.event);
     }
 
-    registerEvent(eventt: Event) {
+    registerEvent(event: Event) {
         let r = {
             "name": event.name,
             "description": event.description,
