@@ -1,8 +1,10 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {Router, Params, NavigationExtras, ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Params, ActivatedRoute} from '@angular/router';
 import {HttpService} from "../shared/http.service";
 import {Response} from "@angular/http";
 import 'rxjs/add/operator/switchMap';
+
+declare var jQuery: any;
 
 @Component({
     selector: `room-content`,
@@ -16,17 +18,18 @@ import 'rxjs/add/operator/switchMap';
             <br/>
 
             <div class="row">
-              <room-events [roomId]="roomId" [changes]="eventChanges"></room-events>
-              <room-problems [roomId]="roomId" [changes]="problemChanges"></room-problems>
+              <room-events [roomId]="roomId" [eventChanges]="eventChanges"></room-events>
+              <room-problems [roomId]="roomId" [problemChanges]="problemChanges"></room-problems>
             </div> <!-- end row of MANUTENÇÃO and PROXIMAS ATIVIDADES -->
             <div class="row">
-              <room-features [roomId]="roomId"></room-features>
+              <room-features [roomId]="roomId" [featureChanges]="featureChanges"></room-features>
+              <a class="modal-trigger waves-effect waves-light btn right" href="#new-feature-modal">Nova Feature</a>
             </div> <!-- FEATURES ROW -->
           </div> <!-- end main row -->
-
         </div>
     </div>
     <new-problem-modal [roomId]="roomId" (onNewProblemCreation)="onNewProblemCreation()"></new-problem-modal>
+    <new-feature-modal [roomId]="roomId" (onNewFeatureCreation)="onNewFeatureCreation()"></new-feature-modal>
     <new-event-modal [roomId]="roomId" (onNewActivityCreation)="onNewActivityCreation()"></new-event-modal>
     `
 })
@@ -34,6 +37,7 @@ export class RoomContentComponent implements OnInit {
 
     eventChanges: number = 0;
     problemChanges: number = 0;
+    featureChanges: number = 0;
     room: Room = {id: 0, name: "", building: "", department: ""};
     roomId: number;
 
@@ -45,6 +49,10 @@ export class RoomContentComponent implements OnInit {
 
     onNewProblemCreation() {
         this.problemChanges++;
+    }
+
+    onNewFeatureCreation() {
+        this.featureChanges++;
     }
 
     ngOnInit() {

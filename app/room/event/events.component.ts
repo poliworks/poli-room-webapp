@@ -32,7 +32,7 @@ declare var jQuery: any;
 export class EventsComponent implements OnInit, OnChanges {
 
     @Input() roomId: number;
-    @Input() changes: number;
+    @Input() eventChanges: number;
     recurrenceMap = {single: "Unica", weekly: "Semanal", monthly: "Mensal", yearly: "Anual", daily: "Diaria"}
     events: Object[] = [];
 

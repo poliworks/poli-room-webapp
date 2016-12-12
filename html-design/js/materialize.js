@@ -2139,7 +2139,7 @@ $(document).ready(function(){
 
 
 
-        // Touch Event
+        // Touch RoomEvent
         var panning = false;
         var menuOut = false;
 
@@ -3402,7 +3402,7 @@ $(document).ready(function(){
 
         // HammerJS, Swipe navigation
 
-        // Touch Event
+        // Touch RoomEvent
         var panning = false;
         var swipeLeft = false;
         var swipeRight = false;
@@ -3804,7 +3804,7 @@ $(document).ready(function(){
 
     // HammerJS, Swipe navigation
 
-    // Touch Event
+    // Touch RoomEvent
     var swipeLeft = false;
     var swipeRight = false;
 

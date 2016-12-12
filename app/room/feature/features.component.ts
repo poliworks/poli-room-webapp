@@ -1,5 +1,4 @@
 import {Component, Input, SimpleChanges, OnChanges} from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
 import {HttpService} from "../../shared/http.service";
 import {Response} from "@angular/http";
 
@@ -21,6 +20,7 @@ import {Response} from "@angular/http";
 export class FeaturesComponent implements OnChanges {
 
     @Input() roomId: number;
+    @Input() featureChanges: number;
 
     features : Object[] = [];
 

@@ -20,6 +20,7 @@ import {NewEventComponent} from "./room/event/new-event.component";
 import {ProfileComponent} from "./shared/profile.component";
 import {ProfileContentComponent} from "./shared/profile-content.component";
 import {ImageContainerComponent} from "./shared/image-container.component";
+import {NewFeatureComponent} from "./room/feature/new-feature.component";
 
 const appRoutes: Routes = [
     {path: "", component: LoginFormComponent, pathMatch: "full"},
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
         RegisterFormComponent,
         ProfileComponent,
         ProfileContentComponent,
-        ImageContainerComponent
+        ImageContainerComponent,
+        NewFeatureComponent
     ],
     bootstrap: [AppComponent]
 })

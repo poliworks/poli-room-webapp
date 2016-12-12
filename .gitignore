@@ -9,4 +9,5 @@ npm-debug.log
 aot/*
 dist/*
 yarn.lock
-
+*.log
+*.iml

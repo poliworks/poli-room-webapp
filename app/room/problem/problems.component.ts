@@ -28,7 +28,7 @@ import {Response} from "@angular/http";
 })
 export class ProblemsComponent implements OnInit, OnChanges {
 
-    @Input() changes: number;
+    @Input() problemChanges: number;
     @Input() roomId: number;
     problems : Object[] = [];
 

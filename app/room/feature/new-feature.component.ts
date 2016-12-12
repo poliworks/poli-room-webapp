@@ -1,6 +1,6 @@
 import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {HttpService} from "../../shared/http.service";
+
 declare var jQuery: any;
 
 @Component({
@@ -63,7 +63,7 @@ export class NewFeatureComponent implements OnInit {
         this.registerFeature(this.feature);
     }
 
-    emitNewFeatureCreation(activity: any) {
+    emitNewFeatureCreation(feature: Feature) {
         this.onNewFeatureCreation.emit(this.feature);
     }
 
@@ -71,10 +71,10 @@ export class NewFeatureComponent implements OnInit {
         let r = {
             "name": feature.name,
             "description": feature.description,
-            "quantity": feature.quantity,
+            "quantity": parseInt(feature.quantity),
             "img": feature.img};
-
-        this.http.req({url: "register_features",
+        console.log(r)
+        this.http.req({url: "register_feature",
                        body: r,
                        replaceMap: {id: this.roomId},
                        handler: this.emitNewFeatureCreation.bind(this)});
@@ -86,5 +86,5 @@ export class Feature {
     name: string;
     description: string;
     img: string;
-    quantity: number;
+    quantity: string;
 }

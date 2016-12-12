@@ -1,5 +1,4 @@
 import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {HttpService} from "../../shared/http.service";
 declare var jQuery: any;
 declare var flatpickr: any;
@@ -57,10 +56,10 @@ declare var moment: any;
 })
 export class NewEventComponent implements OnInit {
 
-    @Output() onNewEventCreation = new EventEmitter<Event>();
+    @Output() onNewEventCreation = new EventEmitter<RoomEvent>();
     @Input() roomId: number;
 
-    event: Event = new Event();
+    event: RoomEvent = new RoomEvent();
     startTimeString: string;
     endTimeString: string;
     recurrenceTypesMap: Object = {
@@ -89,7 +88,7 @@ export class NewEventComponent implements OnInit {
         this.onNewEventCreation.emit(this.event);
     }
 
-    registerEvent(event: Event) {
+    registerEvent(event: RoomEvent) {
         let r = {
             "name": event.name,
             "description": event.description,
@@ -108,7 +107,8 @@ export class NewEventComponent implements OnInit {
         return Object.keys(this.recurrenceTypesMap);
     }
 }
-export class Event {
+
+export class RoomEvent {
     name: string;
     description: string;
     recurrence: string;
