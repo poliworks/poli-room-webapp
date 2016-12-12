@@ -96,7 +96,7 @@ export class NewEventComponent implements OnInit {
             "startTime": parseInt(moment(this.startTimeString).format("X")),
             "endTime": parseInt(moment(this.endTimeString).format("X")),
             "scheduledBy": HttpService.user.id};
-
+        console.log(r);
         this.http.req({url: "register_events",
                        body: r,
                        replaceMap: {id: this.roomId},

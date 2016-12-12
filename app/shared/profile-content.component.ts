@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,
     NavigationExtras } from '@angular/router';
+import {HttpService} from "./http.service";
 
 @Component({
     selector: "profile-content",
@@ -12,7 +13,7 @@ import { Router,
                   <div class="card">
                     <div class="card-image">
                       <!--<img src="http://www.hintfilmiizle.com/uploads/uye/avatar/0.jpg">-->
-                      <image-container></image-container>
+                      <image-container [userId]="getUserId()" ></image-container>
                     </div>
                   </div>
                 </div>
@@ -27,4 +28,10 @@ import { Router,
     </div>
     `
 })
-export class ProfileContentComponent { }
+export class ProfileContentComponent {
+
+    getUserId(): string {
+        return HttpService.user.id
+    }
+
+}

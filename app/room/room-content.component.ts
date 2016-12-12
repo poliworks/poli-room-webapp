@@ -30,7 +30,7 @@ declare var jQuery: any;
     </div>
     <new-problem-modal [roomId]="roomId" (onNewProblemCreation)="onNewProblemCreation()"></new-problem-modal>
     <new-feature-modal [roomId]="roomId" (onNewFeatureCreation)="onNewFeatureCreation()"></new-feature-modal>
-    <new-event-modal [roomId]="roomId" (onNewActivityCreation)="onNewActivityCreation()"></new-event-modal>
+    <new-event-modal [roomId]="roomId" (onNewEventCreation)="onNewEventCreation()"></new-event-modal>
     `
 })
 export class RoomContentComponent implements OnInit {
@@ -43,7 +43,7 @@ export class RoomContentComponent implements OnInit {
 
     constructor(private http: HttpService, private route: ActivatedRoute) { }
 
-    onNewActivityCreation() {
+    onNewEventCreation() {
         this.eventChanges++;
     }
 

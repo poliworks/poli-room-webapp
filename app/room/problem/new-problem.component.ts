@@ -57,7 +57,8 @@ export class NewProblemComponent implements OnInit {
     }
 
 
-    registerProblem(problem  : any){
+    registerProblem(problem  : any) {
+        problem.reportedBy = HttpService.user.id;
         this.http.req({url: "register_problem",
                        replaceMap: {id: this.roomId},
                        body: problem,
@@ -67,7 +68,7 @@ export class NewProblemComponent implements OnInit {
 export class Problem {
     name: string;
     description: string;
-    reportedBy: number = 1;
+    reportedBy: number;
     reportedAt: number;
     featureId: number;
 }

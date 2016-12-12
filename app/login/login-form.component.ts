@@ -58,7 +58,7 @@ export class LoginFormComponent implements OnInit {
     }
 
     login() {
-        this.http.req({url: "login_user", body: {email: this.email, password: this.password}, handler: this.makeLogin.bind(this)})
+        this.http.req({url: "login_user", replaceMap: {userType: "student"}, body: {email: this.email, password: this.password}, handler: this.makeLogin.bind(this)})
     }
 
     makeLogin(response: Response) {

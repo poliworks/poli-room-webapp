@@ -72,10 +72,12 @@ export class RegisterFormComponent implements AfterViewInit{
     register() {
         this.userType = this.userTypes[jQuery('.select-dropdown')[0].value];
         console.log(this.userType);
-        this.http.req({url: "register_user", body: {email: this.email,
-                                                    password: this.password,
-                                                    name: this.name,
-                                                    user_type: this.userType}, handler: this.makeRegister.bind(this)})
+        this.http.req({
+            url: "register_user", replaceMap: {userType: this.userType}, body: {
+                email: this.email,
+                password: this.password,
+                name: this.name
+            }, handler: this.makeRegister.bind(this)})
     }
 
     makeRegister(response: Response) {

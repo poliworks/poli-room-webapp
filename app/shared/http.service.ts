@@ -125,8 +125,9 @@ export class HttpService {
 
     uploadImage(reqMap: ReqMap, formData : FormData) : void {
         var headers = new Headers();
+        console.log(reqMap);
         headers.set('Content-Type', 'multipart/form-data');
-        this.http.post(reqMap.url, formData, headers);
+        this.http.post(this.renderUrl(reqMap), formData, headers).toPromise().then(r => console.log(r));
     }
 }
 
@@ -146,7 +147,7 @@ export interface DiscoveryEntry {
 
 export interface User {
     name: string,
-    id: number,
+    id: string,
     email: string,
     usertType: string,
     token: string
