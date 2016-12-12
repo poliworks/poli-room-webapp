@@ -13,7 +13,14 @@ import {HttpService} from "./http.service";
               <li><a href="#" class="logoside-name">Poli Classroom</a></li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li *ngIf="isLoggedIn()"><button style="margin-right: 15px" class="btn" (click)="logOut()">LogOut</button></li>
+            <!--<li *ngIf="isLoggedIn()"><button style="margin-right: 15px" class="btn" (click)="logOut()">LogOut</button></li> -->
+            <li *ngIf="isLoggedIn()">
+                <img src="http://www.hintfilmiizle.com/uploads/uye/avatar/0.jpg" style="height: 40px; margin-top: 10px" alt="profile image" class="circle">
+            </li>
+            <li *ngIf="isLoggedIn()">
+                <a routerLink="profile">Nome</a>
+            </li>
+            <li *ngIf="isLoggedIn()" (click)="logOut()"><a href="#">Logout</a></li>
           </ul>
         </div>
       </nav>

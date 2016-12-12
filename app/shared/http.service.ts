@@ -1,11 +1,12 @@
 import {Injectable}     from '@angular/core';
-import {Http, Response, RequestMethod, Request} from '@angular/http';
+import {Http, Response, RequestMethod, Request, Headers} from '@angular/http';
 import {Router, NavigationExtras} from '@angular/router'
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
+import {log} from "util";
 
 declare var Materialize: any;
 
@@ -122,6 +123,11 @@ export class HttpService {
         return HttpService.user != null
     }
 
+    uploadImage(reqMap: ReqMap, formData : FormData) : void {
+        var headers = new Headers();
+        headers.set('Content-Type', 'multipart/form-data');
+        this.http.post(reqMap.url, formData, headers);
+    }
 }
 
 export interface ReqMap {
