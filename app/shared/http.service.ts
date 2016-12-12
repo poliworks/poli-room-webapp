@@ -19,7 +19,7 @@ export class HttpService {
     constructor(private http: Http, private router: Router) { }
 
     init(fn: Function) {
-        this.http.get("http://localhost:9000/discovery").toPromise().then(r => this.setDiscovery(fn, r))
+        this.http.get("http://54.152.33.56:9000/discovery").toPromise().then(r => this.setDiscovery(fn, r))
     }
 
     setDiscovery(fn: Function, response: Response) {
