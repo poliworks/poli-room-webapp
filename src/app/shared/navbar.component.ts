@@ -30,7 +30,7 @@ export class NavbarComponent {
 
     constructor (private router: Router) {}
 
-    isLoggedIn() {
+  isLoggedIn() {
         return HttpService.isLoggedIn()
     }
 
