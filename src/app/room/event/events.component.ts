@@ -11,7 +11,7 @@ declare var jQuery: any;
     <div class="col s12s m6">
         <div class="card">
           <div class="card-content">
-            <span class="card-title">Próximas Atitivades</span>
+            <span class="card-title">Próximas Atividades</span>
             <a (click)="openNewActivityModal()" class="modal-trigger waves-effect waves-light btn right" href="#new-event-modal">+</a>
             <ul class="collection">
               <li *ngFor="let event of this.events;" class="collection-item">

@@ -76,7 +76,8 @@ export class RegisterFormComponent implements AfterViewInit{
             url: "register_user", replaceMap: {userType: this.userType}, body: {
                 email: this.email,
                 password: this.password,
-                name: this.name
+                name: this.name,
+                "picture-url": "https://s3-sa-east-1.amazonaws.com/poli-room/users/default.jpg"
             }, handler: this.makeRegister.bind(this)})
     }
 

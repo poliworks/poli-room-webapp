@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,
     NavigationExtras } from '@angular/router';
-import {HttpService} from "./http.service";
+import {HttpService, User} from "./http.service";
 
 @Component({
     selector: `navbar`,
@@ -15,10 +15,10 @@ import {HttpService} from "./http.service";
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <!--<li *ngIf="isLoggedIn()"><button style="margin-right: 15px" class="btn" (click)="logOut()">LogOut</button></li> -->
             <li *ngIf="isLoggedIn()">
-                <img src="http://www.hintfilmiizle.com/uploads/uye/avatar/0.jpg" style="height: 40px; margin-top: 10px" alt="profile image" class="circle">
+                <img src="{{getPictureUrl()}}" style="height: 40px; margin-top: 10px" alt="profile image" class="circle">
             </li>
             <li *ngIf="isLoggedIn()">
-                <a routerLink="profile">Nome</a>
+                <a routerLink="profile">{{getUserName()}}</a>
             </li>
             <li *ngIf="isLoggedIn()" (click)="logOut()"><a href="#">Logout</a></li>
           </ul>
@@ -29,11 +29,18 @@ import {HttpService} from "./http.service";
 export class NavbarComponent {
 
     constructor (private router: Router) {}
-
+    user : User = HttpService.user;
     isLoggedIn() {
         return HttpService.isLoggedIn()
     }
 
+    getPictureUrl() : string {
+        return this.user ? this.user["picture-url"] : "";
+    }
+
+    getUserName() : string {
+        return this.user ? this.user.name : "";
+    }
     logOut() {
         HttpService.destroySession();
         this.router.navigate(["/login"])

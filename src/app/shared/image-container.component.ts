@@ -5,7 +5,7 @@ import {HttpService} from "./http.service";
     selector: 'image-container',
     template: `
         <input type="file" (change)="changeListner($event)" />
-        <img class="image" src="http://www.hintfilmiizle.com/uploads/uye/avatar/0.jpg"/>
+        <img class="image" src="{{HttpService.user.picture_url}}"/>
     `
 })
 

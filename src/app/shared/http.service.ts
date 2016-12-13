@@ -149,6 +149,8 @@ export interface User {
     name: string,
     id: string,
     email: string,
-    usertType: string,
-    token: string
+    userType: string,
+    token: string,
+    "picture-url": string
+
 }

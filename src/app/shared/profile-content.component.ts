@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,
     NavigationExtras } from '@angular/router';
-import {HttpService} from "./http.service";
+import {HttpService, User} from "./http.service";
 
 @Component({
     selector: "profile-content",
@@ -18,8 +18,8 @@ import {HttpService} from "./http.service";
                   </div>
                 </div>
                 <div class="col s12 m8">
-                    <h1 class="title">Nome</h1>
-                    <h4 class="subtitle">Sobrenome</h4>
+                    <h1 class="title">{{user.name}}</h1>
+                    <h4 class="subtitle">{{user}}</h4>
                     <h5 class="subtitle">Professor</h5>
                     <br/>
                 </div> 
@@ -29,7 +29,7 @@ import {HttpService} from "./http.service";
     `
 })
 export class ProfileContentComponent {
-
+    user : User = HttpService.user;
     getUserId(): string {
         return HttpService.user.id
     }
