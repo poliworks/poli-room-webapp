@@ -5,7 +5,7 @@ declare var jQuery: any;
 
 @Component({
     selector: `new-feature-modal`,
-    styleUrls: ['assets/css/new-feature.css'],
+    styleUrls: ['../../../assets/css/new-feature.css'],
     template: `
     <div id="new-feature-modal" class="modal modal-fixed-footer">
         <div class="modal-content">

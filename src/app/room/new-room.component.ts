@@ -5,7 +5,7 @@ import {Response} from "@angular/http";
 declare var jQuery : any;
 @Component({
     selector: `new-room-modal`,
-    styleUrls: ['assets/css/new-room.css'],
+    styleUrls: ['../../assets/css/new-room.css'],
     template: `
     <div id="new-room-modal" class="modal modal-fixed-footer">
         <div class="modal-content">

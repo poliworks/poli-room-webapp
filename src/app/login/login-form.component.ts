@@ -31,7 +31,7 @@ declare var Materialize: any;
                 </div>
                 <div class="row">
                     <a id="loginSubmit" class="btn waves-effect waves-light indigo lighten-1 right" (click)="login()">Login</a>
-                    <a id="registerSubmit" class="left btn waves-effect waves-light indigo lighten-1" href="register">Register</a>
+                    <a routerLink="/register" routerLinkActive="active" id="registerSubmit" class="left btn waves-effect waves-light indigo lighten-1">Register</a>
                 </div>
                 
               </div>

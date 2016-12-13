@@ -6,7 +6,7 @@ declare var moment: any;
 
 @Component({
     selector: `new-event-modal`,
-    styleUrls: ['assets/css/new-event.css'],
+    styleUrls: ['../../../assets/css/new-event.css'],
     template: `
     <div id="new-event-modal" class="modal modal-fixed-footer">
         <div class="modal-content">

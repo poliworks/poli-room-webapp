@@ -5,7 +5,7 @@ declare let moment : any;
 
 @Component({
     selector: `new-problem-modal`,
-    styleUrls: ['assets/css/new-problem.css'],
+    styleUrls: ['../../../assets/css/new-problem.css'],
     template: `
     <div id="new-problem-modal" class="modal modal-fixed-footer">
         <div class="modal-content">

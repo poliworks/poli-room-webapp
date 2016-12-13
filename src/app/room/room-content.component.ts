@@ -71,7 +71,7 @@ export class RoomContentComponent implements OnInit {
 
 }
 
-interface Room {
+export interface Room {
     id: number,
     name: string,
     building: string,
