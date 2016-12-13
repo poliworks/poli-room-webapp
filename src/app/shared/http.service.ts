@@ -104,7 +104,8 @@ export class HttpService {
     }
 
     static setUserFromSession() {
-        HttpService.user = JSON.parse(localStorage.getItem("current_user"))
+        HttpService.user = JSON.parse(localStorage.getItem("current_user"));
+        //console.log(HttpService.user);
     }
 
     static setUser(user: User): void {
@@ -151,6 +152,11 @@ export interface User {
     email: string,
     userType: string,
     token: string,
-    "picture-url": string
-
+    "picture-url": string,
+    course: string,
+    semester: string,
+    cpf: string,
+    rg: string,
+    "num-usp": string,
+    sex: string
 }

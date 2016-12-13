@@ -1,11 +1,12 @@
 import {Component, ElementRef, Input} from '@angular/core'
 import {HttpService} from "./http.service";
+import {ProfileUser} from "./profile-content.component";
 
 @Component({
     selector: 'image-container',
     template: `
         <input type="file" (change)="changeListner($event)" />
-        <img class="image" src="{{HttpService.user.picture_url}}"/>
+        <img class="image" src="{{getUser().getPictureUrl()}}"/>
     `
 })
 
@@ -15,6 +16,10 @@ export class ImageContainerComponent {
 
     uploadedImage: File;
     @Input() userId: string;
+
+  getUser() : ProfileUser {
+    return new ProfileUser(HttpService.user);
+  }
 
     changeListner(event: any) {
         var reader = new FileReader();

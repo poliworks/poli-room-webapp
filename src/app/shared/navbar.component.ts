@@ -29,17 +29,17 @@ import {HttpService, User} from "./http.service";
 export class NavbarComponent {
 
     constructor (private router: Router) {}
-    user : User = HttpService.user;
+
     isLoggedIn() {
         return HttpService.isLoggedIn()
     }
 
     getPictureUrl() : string {
-        return this.user ? this.user["picture-url"] : "";
+        return HttpService.user ? HttpService.user["picture-url"] : "";
     }
 
     getUserName() : string {
-        return this.user ? this.user.name : "";
+        return HttpService.user ? HttpService.user.name : "";
     }
     logOut() {
         HttpService.destroySession();
