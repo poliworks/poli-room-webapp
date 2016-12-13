@@ -1,15 +1,25 @@
 import {Component, ElementRef, Input} from '@angular/core'
 import {HttpService} from "./http.service";
+import {Response} from "@angular/http";
 
 @Component({
     selector: 'image-container',
     template: `
         <input type="file" (change)="changeListner($event)" />
-        <img class="image" src="{{HttpService.user.picture_url}}"/>
+        <img class="image" src="{{getPicture()}}"/>
     `
 })
 
 export class ImageContainerComponent {
+
+    private doneUpLoading(r: Response) {
+      console.log("Done Uploading");
+     this.http.refreshUser()
+    }
+
+    getPicture() {
+      return HttpService.user['picture-url']
+    }
 
     constructor(private element: ElementRef, private http: HttpService) {}
 
@@ -26,7 +36,7 @@ export class ImageContainerComponent {
             var formData = new FormData();
             formData.append("user_id", HttpService.user.id);
             formData.append("file", this.uploadedImage);
-            this.http.uploadImage({url: "upload_profile_image", replaceMap: {id: this.userId, userType: "student"}, handler: null}, formData);
+            this.http.uploadImage({url: "upload_profile_image", replaceMap: {id: this.userId, userType: "student"}, handler: this.doneUpLoading.bind(this)}, formData);
 
             var src = reader.result;
             image.src = src;

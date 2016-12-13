@@ -38,7 +38,9 @@ export class HttpService {
     }
 
     private simpleReq(reqMap: ReqMap) {
-        this.http.request(this.getRequestMap(reqMap)).toPromise().then(r => reqMap.handler(r)).catch(this.catchError.bind(this))
+      console.log("Making req");
+      console.log(reqMap);
+      this.http.request(this.getRequestMap(reqMap)).toPromise().then(r => { console.log(r.json()) ;reqMap.handler(r)}).catch(this.catchError.bind(this))
     }
 
     private catchError(reason: Response) {
@@ -127,7 +129,17 @@ export class HttpService {
         var headers = new Headers();
         console.log(reqMap);
         headers.set('Content-Type', 'multipart/form-data');
-        this.http.post(this.renderUrl(reqMap), formData, headers).toPromise().then(r => console.log(r));
+        this.http.post(this.renderUrl(reqMap), formData, headers).toPromise().then(r => this.refreshUser());
+    }
+
+    refreshUser() {
+      this.req({url: "get_user", replaceMap: {userType: "student", id: HttpService.user.id}, handler: HttpService.doneRefreshingUser})
+    }
+
+    static doneRefreshingUser(r: Response) {
+      console.log(r.json());
+      let us = Object.assign(HttpService.user, r.json());
+      HttpService.setUser(us);
     }
 }
 
