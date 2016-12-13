@@ -167,6 +167,7 @@ export interface User {
     "picture-url": string,
     course: string,
     semester: string,
+    department: string,
     cpf: string,
     rg: string,
     "num-usp": string,

@@ -19,16 +19,18 @@ import {HttpService, User} from "./http.service";
                     </div>
                     <div class="col s12 m8">
                         <h1 class="title">{{getUser().getName()}}</h1>
-                        <h4 *ngIf="isTeacher()" class="subtitle">Professor</h4>
-                        <h4 *ngIf="isStudent()" class="subtitle">Estudante de {{getUser().getCourse()}} do {{getUser().getSemester()}}</h4>
+                        <h4 *ngIf="isTeacher()" class="subtitle">Professor do departamento de {{getUser().getDepto()}}</h4>
+                        <h4 *ngIf="isStudent()" class="subtitle">Estudante de {{getUser().getCourse()}} do {{getUser().getSemester()}}º semestre</h4>
                         <br/>
                     </div> 
                 </div>
                 <div class="row">
                     <p class="title">Nome Completo:  {{getUser().getName()}}</p>
+                    <p class="title">Email:  {{getUser().getEmail()}}</p>
                     <p class="title">Sexo:  {{getUser().getSex()}}</p>
                     <p class="title">CPF:  {{getUser().getCpf()}}</p>
                     <p class="title">RG:  {{getUser().getRg()}}</p>
+                    <p class="title">Número USP:  {{getUser().getNumUsp()}}</p>
                 </div>
             </div><!-- end main row -->
         </div>
@@ -55,6 +57,7 @@ export class ProfileContentComponent {
 }
 
 export class ProfileUser implements User {
+  department: string;
   name: string;
   id: string;
   email: string;
@@ -80,6 +83,8 @@ export class ProfileUser implements User {
     this["picture-url"] = user["picture-url"];
     this["num-usp"] = user["num-usp"];
     this.token = user.token;
+    this.cpf = user.cpf;
+    this.rg = user.rg;
   }
   getName(): string {
     return this.name;
@@ -122,4 +127,13 @@ export class ProfileUser implements User {
   getSex(): string {
     return this.sex;
   }
+
+  getDepto() {
+    return this.department;
+  }
+
+  getNumUsp() {
+    return this['num-usp'];
+  }
+
 }
